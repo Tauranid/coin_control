@@ -25,7 +25,7 @@ def insert_coin(pin):
     if (total_passes <= 0):
         print("turn on screen now")
         subprocess.call(['./screen_on.sh'])
-        screen_timer = Timer(3, timer_screen_finish)
+        screen_timer = Timer(10, timer_screen_finish)
         screen_timer.start()
     else:
         pass
@@ -45,7 +45,7 @@ def timer_screen_finish():
         print("turn screen off again")
         subprocess.call(['./screen_off.sh'])
     else:
-        screen_timer = Timer(3, timer_screen_finish)
+        screen_timer = Timer(10, timer_screen_finish)
 	screen_timer.start()
 
 
