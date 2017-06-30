@@ -1,6 +1,7 @@
 import RPi.GPIO as GPIO
 import time
 from threading import Timer
+import subprocess
 
 #CONSTANTS
 switch_pin = 7 # the interrupt gpio pin
@@ -23,6 +24,7 @@ def insert_coin(pin):
 
     if (total_passes <= 0):
         print("turn on screen now")
+        subprocess.call(['./screen_on.sh'])
         screen_timer = Timer(3, timer_screen_finish)
         screen_timer.start()
     else:
@@ -41,6 +43,7 @@ def timer_screen_finish():
     print("decrease passes to " + str(total_passes))
     if total_passes <= 0:
         print("turn screen off again")
+        subprocess.call(['./screen_off.sh'])
     else:
         screen_timer = Timer(3, timer_screen_finish)
 	screen_timer.start()
