@@ -53,10 +53,10 @@ def loop():
 	while (1):
 		time.sleep(1)
 
+if __name__ == '__main__':
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(switch_pin, GPIO.IN)
 
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(switch_pin, GPIO.IN)
+    GPIO.add_event_detect(switch_pin, GPIO.RISING, callback=insert_coin)
 
-GPIO.add_event_detect(switch_pin, GPIO.RISING, callback=insert_coin)
-
-loop()
+    loop()
