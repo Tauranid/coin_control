@@ -1,3 +1,3 @@
 #!/bin/bash
-kill -CONT $(pidof emulationstation)
+emulationstation
 #vcgencmd display_power 1

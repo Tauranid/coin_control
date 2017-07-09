@@ -1,3 +1,3 @@
 #!/bin/bash
-kill -STOP $(pidof emulationstation)
+killall -s STOP emulationstation
 #vcgencmd display_power 0
